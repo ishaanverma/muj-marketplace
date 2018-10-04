@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MuBay</title>
+        {% include 'base/css.html' %}
+
+        {% block custom_css %}
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'base/navbar.html' %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% include 'base/js.html' %}
+        
+        {% block custom_js %}
+        {% endblock %}
+    </body>
+</html>

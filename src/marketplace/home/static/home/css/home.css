@@ -1,0 +1,171 @@
+.dot {
+	height: 15rem;
+	width: 15rem;
+	background-color: #bbb;
+	border-radius: 50%;
+	position: relative;
+	display: inline-block;
+	margin-right: 7rem;
+	margin-bottom: -4rem;
+	margin-left: -5rem;
+	margin-top:-9rem;
+	z-index: -1;
+	padding: 0;
+}
+
+.dot2 {
+	height: 15rem;
+	width: 15rem;
+	background-color: #bbb;
+	border-radius: 50%;
+	position: relative;
+	display: inline-block;
+	margin-right: -7rem;
+	margin-bottom: -4rem;
+	margin-left: 0rem;
+	margin-top:-11rem;
+	z-index: -1;
+	padding: 0;
+	float: right;
+	overflow: hidden;
+}
+
+#navbar	{
+	margin: 0;
+	padding: 0;
+	width: 300px;
+	background-color: #FCFCFC;
+	
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+#navbar ul {
+	list-style: none;
+}
+
+#navbar a {
+	text-decoration: none;
+	color: #9E9E9E;
+}
+
+#navbar h6 {
+	font-family: "Roboto", "sans-serif";
+	margin-left: 1.5em;
+}
+
+
+.logo	{
+	text-align: center;
+}
+
+.logo h1 {
+	font-family: "Roboto", "sans-serif";
+}
+
+.home-categories li {
+	padding-top: 0.25em;
+}
+
+.home-categories li:hover {
+	color: #000;
+}
+.home-categories a {
+	font-family: "Roboto", "sans-serif";
+
+}
+
+.nav-categories li {
+	padding-top: 0.25em;
+}
+
+.nav-categories a {
+	font-family: "Roboto", "sans-serif";
+}
+
+@media screen and (max-width: 700px) {
+	.navbar {
+		width: 100%;
+		height: auto;
+		position:relative;
+	}
+
+	.navbar a {
+		float: left;
+	}
+
+	div.content {
+		margin-left:0;
+	}
+}
+
+.mainbody	{
+	margin-left: 300px;
+}
+
+#search {
+	text-align: center;
+	padding-top: 5em;
+	padding-bottom: 3em;
+}
+
+#search input {
+	width: 75%;
+	height:3em;
+
+	border: 2px solid #dadada;
+	border-radius: 3em;
+
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+
+	font-family: "Roboto", "sans-serif";
+	font-weight: bold;
+}
+
+#search input:focus {
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+#main-carousel {
+	margin-bottom: 3em;
+}
+#main-carousel img {
+	background-color: #CCC;
+	width: 400px;
+	height: 300px;
+}
+
+#product-card {
+	min-height: 10rem;
+    min-width: 10rem;
+    margin-right: 2rem;
+}
+
+#product-card img {
+	background-color: #CCC;
+	width: 10rem;
+	height: 10rem;
+}
+
+#product-category {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-bottom: 1em;
+}
+
+#product-body {
+	text-align: center;
+	padding: 0.5rem;
+	
+}
+
+#product-body p {
+	width: 8rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
