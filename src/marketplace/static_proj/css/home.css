@@ -4,6 +4,7 @@
     min-width: 320px;
     height: 54px;
     background-color: #f9f9f9;
+    bottom: 0;
     border-top: 1px solid #e2e2e2;
     z-index: 500;
 }
@@ -13,7 +14,7 @@
     padding-bottom: 0;
 }
 .name {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .search {
