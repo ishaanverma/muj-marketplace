@@ -16,7 +16,7 @@ class LoginView(FormView):
         if user is not None:
             login(request, user)
             return redirect("/")
-        return super(LoginView, self).form_invalid()
+        return super(LoginView, self).form_invalid(form)
 
 class RegisterView(CreateView):
     form_class = RegisterForm
