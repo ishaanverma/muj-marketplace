@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block custom_css %}
+    <!-- Custom CSS   -->
+    <link rel="stylesheet" href="{% static "css/home.css" %}" >
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
+
+{% block custom_js %}
+    <!-- Custom JS -->
+    <script src="{% static 'scripts/main.js' %}"></script>
+{% endblock %}

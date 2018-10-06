@@ -5,7 +5,7 @@ from .forms import LoginForm, RegisterForm
 
 class LoginView(FormView):
     form_class = LoginForm
-    template_name = "accounts/login.html"
+    template_name = "login.html"
     success_url = "/"
 
     def form_valid(self, form):
