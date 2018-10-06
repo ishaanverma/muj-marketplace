@@ -1,5 +1,14 @@
-<img src="{{ object.image.url }}" /> <hr>
+{% if object.image.url != None %}
+    <img src="{{ object.image.url }}" /> <hr>
+{% endif %}
+
 {{ object.title }} <hr>
 Posted on: {{ object.timestamp|date }} <hr>
+Posted by: {{ object.user }} <hr>
 {{ object.description }} <hr>
 {{ object.price }} <hr>
+
+{% if object.user == request.user %}
+<a href="{% url 'products:edit' object.slug %}">Edit</a>
+<a href="{% url 'products:delete' object.slug %}">Delete</a>
+{% endif %}
