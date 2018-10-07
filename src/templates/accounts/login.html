@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
+
+                {% for object in form %}
+                <div class="form-group">
+                    <label>{{ object.label }}</label>
+                    {{ object }}
+                </div>
+                {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
-    </body>
-</html>
+    </div>
+{% endblock %}

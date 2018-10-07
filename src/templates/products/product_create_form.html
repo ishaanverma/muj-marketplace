@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        {% if request.user.is_authenticated %}
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <div class="container">
         <form enctype="multipart/form-data" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
+            {% for object in form %}
+            <div class="form-group">
+                <label>{{ object.label }}</label>
+                {{ object }}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        {% else %}
-        <p>
+    </div>
+    {% else %}
+    <div class="container">
+        <h3 class="text-center">
             Please <a href="{% url 'account:login' %}">Login</a> or <a href="{% url 'account:register' %}">Sign Up</a> to post an ad.
-        </p>
-        {% endif %}
-    </body>
-</html>
+        </h3>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,7 +1,10 @@
+{% url 'home:home' as home_url %}
+{% url 'products:add' as sell_url %}
+
     <nav class="container-fluid" id="navigation">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'home:home' %}">
+                <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">
                     <div class="icons">
                         <i class="material-icons">home</i>
                     </div>
@@ -27,6 +30,16 @@
                     </div>
                     <span class="name">
                         favorites
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.path == sell_url %}active{% endif %}" href="{{ sell_url }}">
+                    <div class="icons">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <span class="name">
+                        sell
                     </span>
                 </a>
             </li>
