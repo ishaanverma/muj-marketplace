@@ -2,8 +2,10 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.core.exceptions import PermissionDenied
+from django import forms
 
 from .models import Product
+from .forms import AddProductForm
 
 class ProductListView(ListView):
 	queryset = Product.objects.all()
@@ -14,8 +16,8 @@ class ProductDetailView(DetailView):
 	template_name = "products/detail.html"
 
 class ProductCreateView(CreateView):
+	form_class = AddProductForm
 	model = Product
-	fields = ['title', 'description', 'price', 'image']
 	template_name = "products/product_create_form.html"
 
 	def form_valid(self, form):
@@ -23,8 +25,8 @@ class ProductCreateView(CreateView):
 		return super().form_valid(form)
 
 class ProductUpdateView(UpdateView):
+	form_class = AddProductForm
 	model = Product
-	fields = ['title', 'description', 'price', 'image']
 	template_name = "products/product_update_form.html"
 
 	def get_object(self, *args, **kwargs):

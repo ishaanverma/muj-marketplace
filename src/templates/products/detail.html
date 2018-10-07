@@ -1,0 +1,38 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <ul class="list-group">
+        {% if object.image.url != None %}
+            <li class="list-group-item d-flex ustify-content-between align-items-center">
+                <style>
+                    img {
+                        width: 15em;
+                    }
+                </style>
+                <img src="{{ object.image.url }}" />
+            </li>
+        {% endif %}
+        <li class="list-group-item">
+            {{ object.title }}
+        </li>
+        <li class="list-group-item">
+            Posted on: {{ object.timestamp|date }}
+        </li>
+        <li class="list-group-item">
+            Posted by: {{ object.user }}
+        </li>
+        <li class="list-group-item">
+            {{ object.description }}
+        </li>
+        <li class="list-group-item">
+            Rs. {{ object.price }}
+        </li>
+    </ul>
+    {% if object.user == request.user %}
+        <a class="btn btn-primary" href="{% url 'products:edit' object.slug %}">Edit</a>
+        <a class="btn btn-primary" href="{% url 'products:delete' object.slug %}">Delete</a>
+    {% endif %}
+</div>
+{% endblock %}
