@@ -4,7 +4,7 @@ from .models import Product
 class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['title', 'description', 'price', 'image']
+        fields = ['title', 'description', 'category', 'price', 'image']
         widgets = {
     		"title": forms.TextInput(attrs={
                             "class": "form-control",
@@ -14,11 +14,14 @@ class AddProductForm(forms.ModelForm):
                             "class": "form-control",
                             "placeholer": "Enter Description",
                         }),
+            "category": forms.Select(attrs={
+                            "class": "custom-select",
+                        }),
     		"price": forms.NumberInput(attrs={
                             "class": "form-control",
                             "placeholer": "Enter Price",
                         }),
-    		"image": forms.FileInput(attrs={
+    		"image": forms.ClearableFileInput(attrs={
                             "class": "form-control-file",
     						"type": "file",
                         }),
