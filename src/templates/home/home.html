@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block custom_css %}
+{% block extra_head %}
     <!-- Custom CSS   -->
     <link rel="stylesheet" href="{% static "css/home.css" %}" >
 {% endblock %}
@@ -69,7 +69,7 @@
     </div>
 {% endblock %}
 
-{% block custom_js %}
+{% block extra_js %}
     <!-- Custom JS -->
     <script src="{% static 'scripts/main.js' %}"></script>
 {% endblock %}

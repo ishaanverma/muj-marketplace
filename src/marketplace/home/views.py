@@ -11,4 +11,4 @@ def HomeView(request):
 			"username": request.user.get_full_name(),
 		}
 
-	return render(request, 'home.html', context)
+	return render(request, 'home/home.html', context)

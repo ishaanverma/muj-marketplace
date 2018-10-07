@@ -3,6 +3,7 @@ from django.views.generic import CreateView, FormView
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm
 
+
 class LoginView(FormView):
     form_class = LoginForm
     template_name = "accounts/login.html"
