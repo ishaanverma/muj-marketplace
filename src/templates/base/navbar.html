@@ -1,5 +1,6 @@
 {% url 'home:home' as home_url %}
 {% url 'products:add' as sell_url %}
+{% url 'account:login' as account_login_url %}
 
     <nav class="container-fluid" id="navigation">
         <ul class="nav nav-pills nav-fill">
@@ -24,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'products:add' %}">
+                <a class="nav-link {% if request.path == sell_url %}active{% endif %}" href="{{ sell_url }}">
                     <div class="icons">
                         <i class="material-icons">add_circle_outline</i>
                     </div>
@@ -44,17 +45,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if request.path == sell_url %}active{% endif %}" href="{{ sell_url }}">
-                    <div class="icons">
-                        <i class="material-icons">account_circle</i>
-                    </div>
-                    <span class="name">
-                        sell
-                    </span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#account">
+                <a class="nav-link {% if request.path == account_login_url %}active{% endif %}" href="{{ account_login_url }}">
                     <div class="icons">
                         <i class="material-icons">account_circle</i>
                     </div>
