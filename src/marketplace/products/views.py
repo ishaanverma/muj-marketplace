@@ -15,7 +15,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(CreateView):
 	model = Product
-	fields = ['title', 'description', 'price', 'image']
+	fields = ['title', 'description', 'category', 'price', 'image']
 	template_name = "products/product_create_form.html"
 
 	def form_valid(self, form):
