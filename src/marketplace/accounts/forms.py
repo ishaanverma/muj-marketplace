@@ -47,13 +47,13 @@ class UserAdminChangeForm(forms.ModelForm):
 
 class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs={
-                                "class": "login-form",
+                                "class": "form-control",
                                 "placeholder": "Enter Email",
                                 }
                             ), label='Email')
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={
-                                "class": "login-form",
+                                "class": "form-control",
                                 "placeholder": "Enter Password",
                                 }
                             ), label='Password')
@@ -62,12 +62,34 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.ModelForm):
     # A form for creating new users.
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password',
+                                widget=forms.PasswordInput(attrs={
+                                    "class": "form-control",
+                                    "placeholder": "Enter Password",
+                                }))
+    password2 = forms.CharField(label='Confirm Password',
+                                widget=forms.PasswordInput(attrs={
+                                    "class": "form-control",
+                                    "placeholder": "Enter Password Again"
+                                }))
 
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name')
+        widgets = {
+            "email": forms.EmailInput(attrs={
+                        "class": "form-control",
+                        "placeholder": "Enter Email",
+                    }),
+            "first_name": forms.TextInput(attrs={
+                        "class": "form-control",
+                        "placeholder": "Enter First Name",
+                    }),
+            "last_name": forms.TextInput(attrs={
+                        "class": "form-control",
+                        "placeholder": "Enter Last Name",
+                    }),
+        }
 
     def clean_password2(self):
         # check the two password entries match

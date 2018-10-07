@@ -1,0 +1,19 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+
+                {% for object in form %}
+                <div class="form-group">
+                    <label>{{ object.label }}</label>
+                    {{ object }}
+                </div>
+                {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
