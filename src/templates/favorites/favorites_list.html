@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Favourites</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></a>Product Name</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in objects %}
+                {% for y in x.products.all %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td><a href="{{ y.get_absolute_url }}">{{ y.title }}</a></td>
+                        <td>Rs. {{ y.price }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
