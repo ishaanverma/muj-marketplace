@@ -1,0 +1,5 @@
+<div class="col-12 col-md-8 mx-auto py-3">
+    <form class="form" action="{% url 'search:query' %}" method="GET">
+        <input class="form-control "type="text" name="q" value="{{ request.GET.q }}" placeholder="Type here to search ...">
+    </form>
+</div>
