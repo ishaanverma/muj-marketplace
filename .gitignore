@@ -108,3 +108,6 @@ sql-models/
 
 #Local Django settings file
 local_settings.py
+
+# VS Code
+.vscode
