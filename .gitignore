@@ -105,3 +105,12 @@ venv.bak/
 
 # Local files
 sql-models/
+<<<<<<< Updated upstream
+=======
+
+#Local Django settings file
+local_settings.py
+
+# VS Code
+.vscode
+>>>>>>> Stashed changes
