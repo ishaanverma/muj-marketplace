@@ -1,0 +1,21 @@
+.form-container{
+	border-radius: 0.5em;
+	color: black;
+	padding: 2em 2.4em;
+	margin-top: 3vh;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#submitbutton {
+	border-radius: 3em;
+}
+
+.whitespace {
+    height: 79px;
+}
+
+.alert {
+	margin-top: 1em;
+}

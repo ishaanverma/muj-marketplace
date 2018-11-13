@@ -24,7 +24,7 @@
             Posted by: {{ object.user }}
         </li>
         <li class="list-group-item">
-            {{ object.description }}
+            {{ object.description|linebreaks }}
         </li>
         <li class="list-group-item">
             Rs. {{ object.price }}
