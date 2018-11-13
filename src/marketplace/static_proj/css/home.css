@@ -3,7 +3,12 @@
 }
 
 .logo {
+    margin: 1.5em;
     text-align: center;
+}
+
+.logo img   {
+    width: 10em;
 }
 
 .title-text {
@@ -25,4 +30,8 @@
 
 .card {
     margin-bottom: 2em;
+}
+
+.whitespace {
+    height: 79px;
 }

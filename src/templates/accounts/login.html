@@ -1,19 +1,35 @@
 {% extends "../base.html" %}
 {% load static %}
 
-{% block content %}
-    <div class="container">
-        <form method="post">
-            {% csrf_token %}
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/login.css' %}"> 
+{% endblock %}
 
-                {% for object in form %}
-                <div class="form-group">
-                    <label>{{ object.label }}</label>
-                    {{ object }}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                <form class="form-container" method="post">
+                    {% csrf_token %}
+                    <h1>Login</h1>
+                    <hr>
+                    {% for object in form %}
+                    <div class="form-group">
+                        <label>{{ object.label }}</label>
+                        {{ object }}
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-block" id="submitbutton">Submit</button>
+                    </div>
+                </form>
+                <div class="alert alert-dark" role="alert">
+                    <h6>Don't have an account?
+                    <a class="btn btn-secondary" id="submitbutton" href="{% url 'account:register' %}">Sign Up</a>
+                    </h6>
                 </div>
-                {% endfor %}
-            <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </form>
+        </div>
     </div>
 {% endblock %}

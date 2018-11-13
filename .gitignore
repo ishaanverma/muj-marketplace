@@ -111,3 +111,6 @@ local_settings.py
 
 # VS Code
 .vscode
+
+# product images
+media_root/*
