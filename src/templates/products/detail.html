@@ -30,6 +30,7 @@
             Rs. {{ object.price }}
         </li>
     </ul>
+    <a class="btn btn-secondary" href="#">Add to Favorites</a>
     {% if object.user == request.user %}
         <a class="btn btn-primary" href="{% url 'products:edit' object.slug %}">Edit</a>
         <a class="btn btn-primary" href="{% url 'products:delete' object.slug %}">Delete</a>

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
     'search.apps.SearchConfig',
+    'favorites.apps.FavoritesConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.MyUser' # changes the built in user model
