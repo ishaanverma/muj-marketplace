@@ -10,6 +10,7 @@
 .logo img   {
     width: 10em;
 }
+
 .title-text {
     margin-top: 14px;
     margin-bottom: 5px;
@@ -29,4 +30,8 @@
 
 .card {
     margin-bottom: 2em;
+}
+
+.whitespace {
+    height: 79px;
 }

@@ -60,6 +60,7 @@ class Product(models.Model):
 	price			= models.DecimalField(decimal_places=2, max_digits=10, default=10.00)
 	image 			= models.ImageField(upload_to="products/", null=True, blank=True)
 	active 			= models.BooleanField(default=True)
+	featured		= models.BooleanField(default=False)
 	timestamp 		= models.DateTimeField(auto_now_add=True)
 	user 			= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	category 		= models.ForeignKey(Category, on_delete=models.PROTECT)

@@ -37,34 +37,29 @@
             </a>
         </div>
         <hr>
-        <section class="content">
+    </div>
+    <div class="container-fluid">
             <div class="products">
                 <div class="container category-section">
                     <div class="title">
                         <h2 class="title-text">Featured</h2>
                     </div>
-                    <div class="container category-display">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://dummyimage.com/286x180/d92bd9/000000.png?auto=yes" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://dummyimage.com/286x180/afc21d/000000.png?auto=yes" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="row">
+                        {% for obj in object_list %}
+                            <div class="col">
+                                {% include 'products/snippets/card.html' with instance=obj %}
+
+                                {% if forloop.counter|divisibleby:4 %}
+                                    </div> </div> <div class="row">
+                                {% else %}
+                                    </div>
+                                {% endif %}
+                        {% endfor %}
                 </div>
                 <hr>
             </div>
-        </section>
+    </div>
+    <div class="whitespace">
     </div>
 {% endblock %}
 
