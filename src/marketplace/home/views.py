@@ -3,8 +3,6 @@ from django.views import View
 from django.views.generic import TemplateView
 
 from products.models import Product
-# class HomeView(View):
-# 	template_name = "home/index.html"
 
 class HomeView(TemplateView):
 	template_name='home/home.html'
@@ -18,8 +16,6 @@ class HomeView(TemplateView):
 		books = Product.objects.filter(category__slug='books')[:4]
 		accessories = Product.objects.filter(category__slug='accessories')[:4]
 
-		username = request.user.get_full_name()
-		context['username'] = username
 		context['featured'] = featured
 		context['electronics'] = electronics
 		context['books'] = books

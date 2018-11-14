@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, FormView
+from django.views.generic import CreateView, FormView, TemplateView
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm
 
@@ -23,3 +23,7 @@ class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = "accounts/register.html"
     success_url = "/account/login"
+
+class SettingsView(TemplateView):
+    template_name = "accounts/settings.html"
+    
