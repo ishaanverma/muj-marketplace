@@ -39,25 +39,74 @@
         <hr>
     </div>
     <div class="container-fluid">
-            <div class="products">
-                <div class="container category-section">
-                    <div class="title">
-                        <h2 class="title-text">Featured</h2>
-                    </div>
-                    <div class="row">
-                        {% for obj in object_list %}
-                            <div class="col">
-                                {% include 'products/snippets/card.html' with instance=obj %}
-
-                                {% if forloop.counter|divisibleby:4 %}
-                                    </div> </div> <div class="row">
-                                {% else %}
-                                    </div>
-                                {% endif %}
-                        {% endfor %}
-                </div>
-                <hr>
+        <div class="container category-section">
+            <div class="title">
+                <h2 class="title-text">Featured</h2>
             </div>
+            <div class="row">
+                {% for obj in featured %}
+                    <div class="col">
+                        {% include 'products/snippets/card.html' with instance=obj %}
+
+                        {% if forloop.counter|divisibleby:4 %}
+                            </div> </div> <div class="row">
+                        {% else %}
+                            </div>
+                        {% endif %}
+                {% endfor %}
+        </div>
+        <hr>
+        <div class="container category-section">
+            <div class="title">
+                <h2 class="title-text">Electronics</h2>
+            </div>
+            <div class="row">
+                {% for obj in electronics %}
+                    <div class="col">
+                        {% include 'products/snippets/card.html' with instance=obj %}
+
+                        {% if forloop.counter|divisibleby:4 %}
+                            </div> </div> <div class="row">
+                        {% else %}
+                            </div>
+                        {% endif %}
+                {% endfor %}
+        </div>
+        <hr>
+        <div class="container category-section">
+            <div class="title">
+                <h2 class="title-text">Books</h2>
+            </div>
+            <div class="row">
+                {% for obj in books %}
+                    <div class="col">
+                        {% include 'products/snippets/card.html' with instance=obj %}
+
+                        {% if forloop.counter|divisibleby:4 %}
+                            </div> </div> <div class="row">
+                        {% else %}
+                            </div>
+                        {% endif %}
+                {% endfor %}
+        </div>
+        <hr>
+        <div class="container category-section">
+            <div class="title">
+                <h2 class="title-text">Accessories</h2>
+            </div>
+            <div class="row">
+                {% for obj in accessories %}
+                    <div class="col">
+                        {% include 'products/snippets/card.html' with instance=obj %}
+
+                        {% if forloop.counter|divisibleby:4 %}
+                            </div> </div> <div class="row">
+                        {% else %}
+                            </div>
+                        {% endif %}
+                {% endfor %}
+        </div>
+        <hr>
     </div>
     <div class="whitespace">
     </div>
