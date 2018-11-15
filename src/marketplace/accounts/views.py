@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm
 
 from django.contrib.auth import get_user_model
+from django.contrib import messages
 
 User = get_user_model()
 
@@ -20,6 +21,9 @@ class LoginView(FormView):
         if user is not None:
             login(request, user)
             return redirect("/")
+        else:
+            messages.error(request,'username or password not correct')
+            
         return super(LoginView, self).form_invalid(form)
 
 class RegisterView(CreateView):
