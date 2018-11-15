@@ -7,11 +7,13 @@
 
 {% block content %}
     {% for message in messages %}
-
-    <div class="alert alert-warning">
-        <a class="close" href="#" data-dismiss="alert">×</a>
-        {{ message }}
+    <div class="container-fluid">
+        <div class="alert alert-warning">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
     </div>
+    
     {% endfor %}
 
     <div class="container-fluid">
