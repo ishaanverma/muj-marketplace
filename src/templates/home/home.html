@@ -7,10 +7,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid mainbody">
-        <div class="logo">
-            <img src="{% static 'img/mubaylogo.png' %}" alt="">
+    <div class="container-fluid justify-content-center mainbody">
+        <div class="topbar">
+            <div class="logo">
+                    <img src="{% static 'img/mubaylogo.png' %}" alt="">
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="account">
+                <h3>{{ user.get_full_name }}</h3>
+                <a href="{% url 'account:logout' %}" class="btn btn-info">Logout</a>
+            </div>
+            {% endif %}
         </div>
+        
 
         {% include 'search/search_form.html' %}
 

@@ -1,0 +1,25 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <!-- Custom CSS   -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" >
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <div class="main-container">
+                <h1>{{ user.get_full_name }}</h1>
+                <ul class="list-group">
+                        <a href="#"><li class="list-group-item list-group-item-action">Account Details</li></a>
+                        <a href="{% url 'favorites:home' %}"><li class="list-group-item list-group-item-action">Favorites</li></a>
+                        <a href="{% url 'products:active' %}"><li class="list-group-item list-group-item-action">Active Products</li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
