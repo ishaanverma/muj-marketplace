@@ -10,6 +10,7 @@
                 <th>#</th>
                 <th></a>Product Name</th>
                 <th>Product Price</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                         <th scope="row">{{ forloop.counter }}</th>
                         <td><a href="{{ y.get_absolute_url }}">{{ y.title }}</a></td>
                         <td>Rs. {{ y.price }}</td>
+                        <td>{% include 'products/snippets/add_to_favorite.html' with product=y favorite=x %}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}

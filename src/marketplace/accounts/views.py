@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import CreateView, FormView, TemplateView, UpdateView
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib.auth import get_user_model
 from django.contrib import messages
@@ -31,8 +32,9 @@ class RegisterView(CreateView):
     template_name = "accounts/register.html"
     success_url = "/account/login"
 
-class SettingsView(TemplateView):
-    template_name = "accounts/settings.html"
+class AccountHomeView(LoginRequiredMixin, TemplateView):
+    login_url = "account:register"
+    template_name = "accounts/home.html"
 
 class UserUpdateView(UpdateView):
     form_class = RegisterForm

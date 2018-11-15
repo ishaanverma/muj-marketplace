@@ -1,5 +1,5 @@
-.form-container{
-	border-radius: 0.5em;
+.main-container {
+    border-radius: 0.5em;
 	border: 0px solid;
 	color: black;
 	padding: 2em 2.4em;
@@ -9,10 +9,6 @@
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-#submitbutton {
-	border-radius: 3em;
-}
-
-.alert {
-	margin-top: 1em;
+.main-container h1 {
+    text-align: center;
 }

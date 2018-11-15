@@ -1,6 +1,6 @@
 {% url 'home:home' as home_url %}
 {% url 'products:add' as sell_url %}
-{% url 'account:register' as account_register_url %}
+{% url 'account:home' as account_home_url %}
 {% url 'favorites:home' as favorites_url %}
 
     <nav class="container-fluid" id="navigation">
@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {% if request.path == account_register_url %}active{% endif %}" href="{{ account_register_url }}">
+                <a class="nav-link {% if request.path == account_home_url %}active{% endif %}" href="{{ account_home_url }}">
                     <div class="icons">
                         <i class="material-icons">account_circle</i>
                     </div>
