@@ -22,7 +22,7 @@ class LoginView(FormView):
             login(request, user)
             return redirect("/")
         else:
-            messages.error(request,'username or password not correct')
+            messages.error(request,'Invalid Details, Please Sign Up or Try Again.')
             
         return super(LoginView, self).form_invalid(form)
 
