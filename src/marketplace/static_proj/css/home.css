@@ -1,14 +1,12 @@
-.topbar {
-    text-align: center;
-}
-
 .logo {
-    margin: 1.5em;
     text-align: center;
+    position: absolute;
+    top: 5em;
+    z-index: 1;
 }
 
 .logo img   {
-    width: 10em;
+    max-width: 10em;
 }
 
 .title-text {
@@ -36,10 +34,12 @@
     vertical-align: middle;
     position: absolute;
     object-fit: cover;
+    min-width: 100%;
+    height: 32rem;
 }
 
-.carousel-control-prev {
-    position: absolute;
+.carousel-caption {
+    bottom: 10rem;
 }
 
 .container-fluid {
