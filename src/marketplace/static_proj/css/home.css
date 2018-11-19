@@ -27,6 +27,7 @@
 }
 
 .carousel-item {
+    width: 100%;
     height: 32rem;
 }
 
@@ -47,20 +48,14 @@
     padding-right: 0px !important;
 }
 
-.category-section {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-}
-
 .footer {
+    width: 100%;
     padding: 2.5rem 0;
     color: #999;
     text-align: center;
     background-color: #f9f9f9;
     border-top: .05rem solid #e5e5e5;
 }
-
-
 
 .whitespace {
     height: 54px;

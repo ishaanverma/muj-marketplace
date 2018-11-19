@@ -20,9 +20,15 @@
         <li class="list-group-item">
             Posted on: {{ object.timestamp|date }}
         </li>
+        {% if user.is_authenticated %}
+            <li class="list-group-item">
+                Posted by: {{ object.user }}
+            </li>
+        {% else %}
         <li class="list-group-item">
-            Posted by: {{ object.user }}
+            Posted by: <a class="btn btn-primary" style="border-radius: 5em" href="{% url 'account:login' %}">Login To View</a>
         </li>
+        {% endif %}
         <li class="list-group-item">
             {{ object.description|linebreaks }}
         </li>
@@ -30,7 +36,9 @@
             Rs. {{ object.price }}
         </li>
     </ul>
-    {% include 'products/snippets/add_to_favorite.html' with product=object favorite=favorite %}
+    {% if user.is_authenticated %}
+        {% include 'products/snippets/add_to_favorite.html' with product=object favorite=favorite %}
+    {% endif %}
     {% if object.user == request.user %}
         <a class="btn btn-primary" href="{% url 'products:edit' object.slug %}">Edit</a>
         <a class="btn btn-primary" href="{% url 'products:delete' object.slug %}">Delete</a>

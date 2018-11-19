@@ -1,10 +1,12 @@
 {% url 'home:home' as home_url %}
-
-<div id="search-container" class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-10 mx-auto">
-    <form id="search" class="form" action="{% url 'search:query' %}" method="GET">
-        <input id="searchinput" class="form-control" type="text" name="q" value="{{ request.GET.q }}" placeholder="Type here to search ...">
-    </form>
+<div class="container-fluid">
+    <div id="search-container" class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+        <form id="search" class="form text-center" action="{% url 'search:query' %}" method="GET">
+            <input id="searchinput" class="form-control" type="text" name="q" value="{{ request.GET.q }}" placeholder="Type here to search ...">
+        </form>
+    </div>
 </div>
+
 
 {% if request.path == home_url %}
 <style>
@@ -12,16 +14,15 @@
         position: absolute;
         top: -5em;
         z-index: 1;
+        width: 100%;
     }
     #searchinput {
         border-radius: 5em;
-        max-width: 100em;
     }
     #search-container {
-        width: 100%;
         text-align: center;
+        width: 30em;
     }
-
     
 </style>
 {% endif %}

@@ -36,7 +36,7 @@
                         </div>    
                 </div>
             </div>
-            {% include 'search/search_form.html' %}
+            
             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -46,15 +46,17 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <hr>
     </div>
+
+    {% include 'search/search_form.html' %}
+
     {% if user.is_authenticated %}
-    <div class="account">
+    <div class="container-fluid account py-5" style="text-align: center;">
         <h3>{{ user.get_full_name }}</h3>
         <a href="{% url 'account:logout' %}" class="btn btn-info">Logout</a>
     </div>
     {% endif %}
-    <div class="container-container">
+    <div class="container">
         <div class="container-fluid category-section">
             <div class="category-section">
                 <div class="title">
@@ -62,7 +64,7 @@
                     </div>
                     <div class="row">
                         {% for obj in featured %}
-                            <div class="col">
+                            <div class="col-lg-3 col-md-10 col-sm-12 py-2">
                                 {% include 'products/snippets/card.html' with instance=obj %}
         
                                 {% if forloop.counter|divisibleby:4 %}
@@ -81,7 +83,7 @@
                         </div>
                         <div class="row">
                             {% for obj in electronics %}
-                                <div class="col">
+                                <div class="col-lg-3 col-md-10 col-sm-12 py-2">
                                     {% include 'products/snippets/card.html' with instance=obj %}
             
                                     {% if forloop.counter|divisibleby:4 %}
@@ -100,7 +102,7 @@
                         </div>
                         <div class="row">
                             {% for obj in books %}
-                                <div class="col">
+                                <div class="col-lg-3 col-md-10 col-sm-12 py-2">
                                     {% include 'products/snippets/card.html' with instance=obj %}
             
                                     {% if forloop.counter|divisibleby:4 %}
@@ -119,7 +121,7 @@
                     </div>
                     <div class="row">
                         {% for obj in accessories %}
-                            <div class="col">
+                            <div class="col-lg-3 col-md-10 col-sm-12 py-2">
                                 {% include 'products/snippets/card.html' with instance=obj %}
         
                                 {% if forloop.counter|divisibleby:4 %}
@@ -131,15 +133,16 @@
             </div>
         </div>
         <hr>
-        <div class="container-fluid">
-            <div class="footer">
-                <p>Built By Students of Manipal University, Jaipur</p>
-                <a href="#">Back to top</a>
-            </div>
-        </div>
-        <div class="whitespace">
+    </div>
+    <div class="container-fluid">
+        <div class="footer">
+            <p>Built By Students of Manipal University, Jaipur</p>
+            <a href="#">Back to top</a>
         </div>
     </div>
+    <div class="whitespace">
+    </div>
+
 {% endblock %}
 
 {% block extra_js %}

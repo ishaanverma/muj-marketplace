@@ -20,8 +20,9 @@ class ProductDetailView(DetailView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
-		favorite, created = Favorite.objects.get_or_create(user=self.request.user)
-		context['favorite'] = favorite
+		if self.request.user.is_authenticated:
+			favorite, created = Favorite.objects.get_or_create(user=self.request.user)
+			context['favorite'] = favorite
 		return context	
 
 class ProductCreateView(CreateView):
