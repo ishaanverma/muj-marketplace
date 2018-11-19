@@ -114,3 +114,4 @@ local_settings.py
 
 # product images
 static_cdn/media_root/*
+src/static_cdn/*
