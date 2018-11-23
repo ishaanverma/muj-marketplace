@@ -2,6 +2,7 @@
 {% url 'products:add' as sell_url %}
 {% url 'account:home' as account_home_url %}
 {% url 'favorites:home' as favorites_url %}
+{% url 'taxi:home' as taxi_url %}
 
     <nav class="container-fluid" id="navigation">
         <ul class="nav nav-pills nav-fill">
@@ -16,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#cab">
+                <a class="nav-link {% if request.path == taxi_url %}active{% endif %}" href="{{ taxi_url }}">
                     <div class="icons">
                         <i class="material-icons">commute</i>
                     </div>

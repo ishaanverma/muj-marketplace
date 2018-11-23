@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'search.apps.SearchConfig',
     'favorites.apps.FavoritesConfig',
+    'taxi.apps.TaxiConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.MyUser' # changes the built in user model
@@ -108,6 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 6,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',

@@ -1,0 +1,39 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/products/product_create.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                <form class="form-container" method="POST">
+                    {% csrf_token %}
+                    <h1>Request Taxi Companions</h1>
+                    <hr>
+                    {% for object in form %}
+                    <div class="form-group">
+                        <label>{{ object.label }}</label>
+                        {{ object }}
+                    </div>
+                    {% endfor %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-block" id="submitbutton">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="whitespace">
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <h3 class="text-center">
+            Please <a href="{% url 'account:login' %}">Login</a> or <a href="{% url 'account:register' %}">Sign Up</a> to post an ad.
+        </h3>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="main-product-body" class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card mt-4">
+                {% if object.image.url != None %}
+                    <img class="card-img-top img-fluid" src="{{ object.image.url }}" alt="">
+                {% endif %}
+                
+                <div class="card-body">
+                    <h3 class="card-title">{{ object.title }}</h3>
+                    <h4>Rs. {{ object.price }}</h4>
+                    {% if user.is_authenticated %}
+                        <h6>Posted By: {{ object.user }}</h4>
+                    {% else %}
+                        <h6>Posted By: <a class="btn btn-primary" style="border-radius: 5em" href="{% url 'account:login' %}">Login To View</a> </h6>
+                    {% endif %}
+                    <h6>Posted On: {{ object.timestamp|date }}</h3>
+                    <p class="card-text">{{ object.description|linebreaks }}</p>
+                </div>
+
+                {% if user.is_authenticated %}
+                    {% include 'products/snippets/add_to_favorite.html' with product=object favorite=favorite %}
+                {% endif %}
+                {% if object.user == request.user %}
+                    <a class="btn btn-primary" href="{% url 'products:edit' object.slug %}">Edit</a>
+                    <a class="btn btn-primary" href="{% url 'products:delete' object.slug %}">Delete</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'base/footer.html' %}
+
+<style>
+    #main-product-body {
+        padding-top: 54px;
+        padding-bottom: 54px;
+    }
+
+    @media (min-width: 992px) {
+        #main-product-body {
+            padding-top: 56px;
+        }
+    }
+    .container-fluid {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .card-img-top {
+        width: 50em;
+    }
+    .btn {
+        margin: 0.5em;
+    }
+    #favorite-btn {
+        margin: 0 1em;
+    }
+</style>
+{% endblock %}
