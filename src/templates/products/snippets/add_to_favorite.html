@@ -2,7 +2,7 @@
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}"/>
     {% if product in favorite.products.all %}
-    <p>Added <button type="submit" class="btn btn-secondary">Remove?</button></p>
+    <p id="favorite-btn">Added <button type="submit" class="btn btn-secondary">Remove?</button></p>
     {% else %}
     <button type="submit" class="btn btn-success">Add To Favorites</button>
     {% endif %}
