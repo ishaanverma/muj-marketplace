@@ -47,8 +47,8 @@
         <a href="{% url 'account:logout' %}" class="btn btn-info">Logout</a>
     </div>
     {% endif %}
-    <div class="container">
-        <div class="container-fluid category-section">
+    
+        <div class="container">
             <div class="category-section">
                 <div class="title">
                         <h2 class="title-text">Featured</h2>
@@ -64,10 +64,11 @@
                                     </div>
                                 {% endif %}
                         {% endfor %}
+                </div>
             </div>
         </div>
         <hr>
-        <div class="container-fluid">
+        <div class="container">
             <div class="category-section">
                     <div class="title">
                             <h2 class="title-text">Electronics</h2>
@@ -83,10 +84,11 @@
                                         </div>
                                     {% endif %}
                             {% endfor %}
+                </div>
             </div>
         </div>
         <hr>
-        <div class="container-fluid">
+        <div class="container">
             <div class="category-section">
                     <div class="title">
                             <h2 class="title-text">Books</h2>
@@ -102,10 +104,11 @@
                                         </div>
                                     {% endif %}
                             {% endfor %}
+                </div>
             </div>
         </div>
         <hr>
-        <div class="container-fluid">
+        <div class="container">
             <div class="category-section">
                 <div class="title">
                         <h2 class="title-text">Accessories</h2>
@@ -121,18 +124,12 @@
                                     </div>
                                 {% endif %}
                         {% endfor %}
+                </div>
             </div>
         </div>
         <hr>
-    </div>
-    <div class="container-fluid">
-        <div class="footer">
-            <p>Built By Students of Manipal University, Jaipur</p>
-            <a href="#">Back to top</a>
-        </div>
-    </div>
-    <div class="whitespace">
-    </div>
+
+    {% include 'base/footer.html' %}
 
 {% endblock %}
 
