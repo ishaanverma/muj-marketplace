@@ -108,3 +108,10 @@ sql-models/
 
 #Local Django settings file
 local_settings.py
+
+# VS Code
+.vscode
+
+# product images
+static_cdn/media_root/*
+src/static_cdn/*

@@ -1,0 +1,25 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-3 mt-3">
+            {% include 'search/search_form.html' %}
+            {% if query %}
+            <div class="col-12 mt-3">
+                <h2>Searched for {{ query }}</h2>
+            </div>
+            {% endif %}
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
+        <ul class="list-group">
+            {% for obj in object_list %}
+            <li class="list-group-item">
+                <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -5,7 +5,7 @@
 <div class="container">
     <ul class="list-group">
         {% if object.image.url != None %}
-            <li class="list-group-item d-flex ustify-content-between align-items-center">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
                 <style>
                     img {
                         width: 15em;
@@ -20,19 +20,55 @@
         <li class="list-group-item">
             Posted on: {{ object.timestamp|date }}
         </li>
+        {% if user.is_authenticated %}
+            <li class="list-group-item">
+                Posted by: {{ object.user }}
+            </li>
+        {% else %}
         <li class="list-group-item">
-            Posted by: {{ object.user }}
+            Posted by: <a class="btn btn-primary" style="border-radius: 5em" href="{% url 'account:login' %}">Login To View</a>
         </li>
+        {% endif %}
         <li class="list-group-item">
-            {{ object.description }}
+            {{ object.description|linebreaks }}
         </li>
         <li class="list-group-item">
             Rs. {{ object.price }}
         </li>
     </ul>
+    {% if user.is_authenticated %}
+        {% include 'products/snippets/add_to_favorite.html' with product=object favorite=favorite %}
+    {% endif %}
     {% if object.user == request.user %}
         <a class="btn btn-primary" href="{% url 'products:edit' object.slug %}">Edit</a>
         <a class="btn btn-primary" href="{% url 'products:delete' object.slug %}">Delete</a>
     {% endif %}
 </div>
+
+<!-- <div class="container-fluid bg">
+		<div class="row"> 
+			<div class="col-lg-8 col-md-8 col-sm-11 col-xs-3" align="center">
+					<h1>{{ object.title }}</h1>			
+			</div>
+		</div>
+		<div class="row">
+            {% if object.image.url != None %}
+			<div class="col-lg-5 col-md-7 col-sm-8 col-xs-12" id="image">
+					<div class="media-left">
+						<img src="{{ object.image.url }}" class="media-object" width="450">
+					</div>
+            </div>
+            {% endif %}
+            <div class="col-lg-4 col-md-5 col-sm-8 col-xs-12" id="details">
+                    <p>Posted On: {{ object.timestamp|date }}</p>
+                    <br>
+                    <p>Posted By: {{ object.user }}</p>
+            </div>
+			<div class="col-lg-4 col-md-5 col-sm-8 col-xs-12" id="description">
+				<p>{{ object.description|linebreaks }}</p>
+				<br>
+				<button type="submit" class="btn btn-success btn-block">Rs. {{ object.price }}</button>
+			</div>
+		</div>
+</div> -->
 {% endblock %}

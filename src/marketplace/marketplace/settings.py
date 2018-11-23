@@ -28,7 +28,7 @@ SECRET_KEY = DJANGO_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG_STATUS
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = DJANGO_ALLOWED_HOSTS
 
 
 # Application definition
@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
+    'search.apps.SearchConfig',
+    'favorites.apps.FavoritesConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.MyUser' # changes the built in user model

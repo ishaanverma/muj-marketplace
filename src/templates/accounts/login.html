@@ -1,19 +1,58 @@
 {% extends "../base.html" %}
 {% load static %}
 
-{% block content %}
-    <div class="container">
-        <form method="post">
-            {% csrf_token %}
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/login.css' %}"> 
+{% endblock %}
 
-                {% for object in form %}
-                <div class="form-group">
-                    <label>{{ object.label }}</label>
-                    {{ object }}
-                </div>
-                {% endfor %}
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+{% block content %}
+    {% for message in messages %}
+    <div class="container-fluid">
+        <div class="alert alert-warning">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
     </div>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                    <div class="form-container">
+                        <h1>You're Already Logged In !</h1>
+                        <a href="{% url 'home:home' %}" class="btn btn-primary" id="#submitbutton">Home</a>
+                        <a href="{% url 'account:logout' %}" class="btn btn-secondary" id="#submitbutton">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+                    <form class="form-container" method="post">
+                        {% csrf_token %}
+                        <h1>Login</h1>
+                        <hr>
+                        {% for object in form %}
+                        <div class="form-group">
+                            <label>{{ object.label }}</label>
+                            {{ object }}
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block" id="submitbutton">Submit</button>
+                        </div>
+                    </form>
+                    <div class="alert alert-dark" role="alert">
+                        <h6>Don't have an account?
+                        <a class="btn btn-secondary" id="submitbutton" href="{% url 'account:register' %}">Sign Up</a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

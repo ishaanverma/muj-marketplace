@@ -1,0 +1,20 @@
+<div class="card" >
+    {% if instance.image %}
+        <a id="image-thumb" href ="{{ instance.get_absolute_url }}"><img class="card-img-top" src="{{ instance.image.url }}" alt="Card image cap"></a>
+    {% endif %}
+    <div class="card-body h-100">
+        <h5 class="card-title">{{ instance.title|truncatechars:20 }}</h5>
+        <p class="card-text">Rs. {{ instance.price }}</p>
+        <p class="card-text">{{ instance.description|truncatechars:50 }}</p>
+        <a href="{{ instance.get_absolute_url }}" class="btn btn-primary btn-block">View</a>
+    </div>
+</div>
+<style>
+    .btn-block {
+        border-radius: 5em;
+    }
+    #image-thumb {
+        height: 10rem;
+        overflow: auto;
+    }
+</style>
