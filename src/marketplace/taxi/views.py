@@ -26,3 +26,24 @@ class TaxiCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         print(self.request)
         return super().form_valid(form)
+
+class TaxiUpdateView(UpdateView):
+    form_class = AddTaxiForm
+    model = Taxi
+    template_name = "taxi/taxi_update_form.html"
+
+    def get_object(self, *args, **kwargs):
+        obj = super(TaxiUpdateView, self).get_object(*args, **kwargs)
+        if obj.user != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj
+
+class TaxiDeleteView(DeleteView):
+    model = Taxi
+    success_url = reverse_lazy('taxi:home')
+
+    def get_object(self, *args, **kwargs):
+        obj = super(TaxiDeleteView, self).get_object(*args, **kwargs)
+        if obj.user != self.request.user:
+            raise PermissionDenied() #or Http404
+        return obj

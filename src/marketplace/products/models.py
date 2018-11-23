@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 from django.utils.text import slugify
+from django.core.validators import MinValueValidator
 
 class Category(models.Model):
 	name = models.CharField(max_length=120, unique=True)
@@ -57,7 +58,7 @@ class Product(models.Model):
 	title 			= models.CharField(max_length=120)
 	slug 			= models.SlugField(blank=True, unique=True)
 	description 	= models.TextField()
-	price			= models.DecimalField(decimal_places=2, max_digits=10, default=10.00)
+	price			= models.DecimalField(decimal_places=2, max_digits=10, default=10.00, validators=[MinValueValidator(0.01)])
 	image 			= models.ImageField(upload_to="products/", null=True, blank=True)
 	active 			= models.BooleanField(default=True)
 	featured		= models.BooleanField(default=False)
