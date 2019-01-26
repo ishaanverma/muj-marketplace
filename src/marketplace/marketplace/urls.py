@@ -28,6 +28,8 @@ urlpatterns = [
     path('search/', include('search.urls', namespace='search')),
     path('fav/', include('favorites.urls', namespace='favorites')),
     path('taxi/', include('taxi.urls', namespace='taxi')),
+    path('api/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
 ]
 

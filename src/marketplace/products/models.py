@@ -63,8 +63,8 @@ class Product(models.Model):
 	active 			= models.BooleanField(default=True)
 	featured		= models.BooleanField(default=False)
 	timestamp 		= models.DateTimeField(auto_now_add=True)
-	user 			= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	category 		= models.ForeignKey(Category, on_delete=models.PROTECT)
+	user 			= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,  related_name="user_products")
+	category 		= models.ForeignKey(Category, on_delete=models.PROTECT, related_name="category_products")
 
 	objects = ProductManager()
 

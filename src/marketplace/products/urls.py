@@ -11,5 +11,4 @@ urlpatterns = [
 	path('<slug:slug>/edit/', views.ProductUpdateView.as_view(), name='edit'),
 	path('<slug:slug>/delete/', views.ProductDeleteView.as_view(), name='delete'),
 	path('<slug:slug>/', views.ProductDetailView.as_view(), name='detail'),
-	
 ]
